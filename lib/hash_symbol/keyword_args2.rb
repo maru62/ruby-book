@@ -12,7 +12,21 @@ buy_burger('fish', drink: true, potato: false, salad:true, chicken: false)
 
 =end
 
-
+=begin
 # キーワード引数部をハッシュで受け付けてみる
 def buy_burger(menu, options = {})
-  puts 
+  puts options
+end
+
+buy_burger('fish', {'drink' => true, 'potato' => false})
+
+# これでも間違いではないが中括弧を省略しても良い
+
+buy_burger('fish', 'drink' => true, 'potato' => false)
+
+# 最後の引数がハッシュである場合のみ、こうでない場合の例はまあいいでしょう
+
+# メソッド呼び出しの外側の括弧が省略できるのでそちらも省略した場合、Railsでよく出てきた気がする
+
+buy_burger 'fish', 'drink' => true, 'potato' => false
+
