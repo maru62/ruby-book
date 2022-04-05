@@ -1,6 +1,7 @@
 # Userクラスの定義
 class User
-    attr_reader :personal_name, :surname, :age # ここ組み込みメソッドなんだ
+    attr_reader :personal_name, :surname, :age  # ここ組み込みメソッドなんだ
+    attr_accessor :personal_name                # personal_nameの読み書きを許可する
 
     # コンストラクター
     def initialize(personal_name, surname, age)
@@ -17,7 +18,7 @@ users << User.new('悠紀', '大山', 35)
 users << User.new('徳仁', '天皇', 62)
 
 # 氏名を作成するメソッド
-def full_name(user)
+def full_name user
     "#{user.surname} #{user.personal_name}"
 end
 
@@ -31,5 +32,9 @@ end
 ## データにキーを追加されるなど
 # users[0][:country] = '日本'
 
-an_user = User.new('晋三', '安倍', 67)
-puts an_user.personal_name   # an_userはpersonal_nameメソッドのレシーバー
+user1 = User.new('晋三', '安倍', 67)
+puts user1.personal_name   # an_userはpersonal_nameメソッドのレシーバー
+
+user2 = User.new('一代', '松居', 64)
+user2.personal_name = '海老蔵'
+puts full_name user2
