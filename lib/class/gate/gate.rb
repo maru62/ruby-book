@@ -1,5 +1,3 @@
-#require './ticket.rb'
-
 class Gate
     STATIONS = [:tachikawa, :kunitachi, :nishikokubunji]
     FARES = [140, 160]
